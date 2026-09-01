@@ -115,10 +115,14 @@
   .card p{margin-top:10px;color:var(--ink-soft);font-size:.88rem;line-height:1.55;}
   .card .tag{font-size:.72rem;color:var(--ink-faint);letter-spacing:.08em;text-transform:uppercase;}
 
-  .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;}
-  .gallery img{aspect-ratio:1;object-fit:cover;filter:grayscale(30%);transition:filter .4s var(--ease),transform .4s var(--ease);}
-  .gallery a:hover img{filter:grayscale(0%);transform:scale(1.02);}
-  @media(max-width:640px){.gallery{grid-template-columns:repeat(2,1fr);}}
+  .carousel{position:relative;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--bg-alt);}
+  .carousel-track{position:relative;width:100%;aspect-ratio:16/9;}
+  .carousel-track img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1s var(--ease);}
+  .carousel-track img.active{opacity:1;}
+  .carousel-dots{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);display:flex;gap:8px;}
+  .carousel-dots span{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.5);cursor:pointer;transition:background .3s;}
+  .carousel-dots span.active{background:#fff;}
+  @media(max-width:640px){.carousel-track{aspect-ratio:4/5;}}
 
   .social-row{display:flex;gap:14px;flex-wrap:wrap;}
   .social-row a{padding:12px 20px;border:1px solid var(--line);border-radius:var(--radius);font-size:.88rem;transition:background .25s,color .25s;}
@@ -215,9 +219,9 @@
       <h2>Eres bienvenido tal como estás</h2>
     </div>
     <div class="steps">
-      <div class="step"><div class="num">01</div><h3>Llega cuando puedas</h3><p>No hace falta llegar puntual ni vestido de cierta forma. Solo ven.</p></div>
-      <div class="step"><div class="num">02</div><h3>Alguien te recibe</h3><p>En la entrada siempre hay una persona lista para orientarte y presentarte a otros.</p></div>
-      <div class="step"><div class="num">03</div><h3>Encuentra tu grupo</h3><p>Después del servicio te ayudamos a conectar con un grupo pequeño cerca de ti.</p></div>
+      <div class="step"><h3>Llega cuando puedas</h3><p>No hace falta llegar puntual ni vestido de cierta forma. Solo ven.</p></div>
+      <div class="step"><h3>Alguien te recibe</h3><p>En la entrada siempre hay una persona lista para orientarte y presentarte a otros.</p></div>
+      <div class="step"><h3>Encuentra tu grupo</h3><p>Después del servicio te ayudamos a conectar con un grupo pequeño cerca de ti.</p></div>
     </div>
   </section>
 
@@ -228,16 +232,32 @@
     </div>
     <div class="city-list" id="cityList">
       <div class="city">
-        <div class="city-head"><h3>Ciudad de México</h3><span class="chevron">+</span></div>
-        <div class="city-detail">Reuniones los jueves 7:00 PM en distintas casas de la zona. Escríbenos para ubicar el grupo más cercano.</div>
+        <div class="city-head"><h3>Culiacán</h3><span class="chevron">+</span></div>
+        <div class="city-detail">Grupos pequeños en distintas zonas de la ciudad. <a href="https://drive.google.com/drive/folders/1Q7INUPlq3U16nsphQLT7D3clFVcwBPbR?usp=drive_link" target="_blank" rel="noopener" style="text-decoration:underline;">Ver información y contacto</a>.</div>
+      </div>
+      <div class="city">
+        <div class="city-head"><h3>Navolato</h3><span class="chevron">+</span></div>
+        <div class="city-detail"><a href="https://drive.google.com/drive/folders/1FUmPgsAy2QrAnb3Oe86sQy99nBY1HTY7?usp=sharing" target="_blank" rel="noopener" style="text-decoration:underline;">Ver información y contacto</a>.</div>
+      </div>
+      <div class="city">
+        <div class="city-head"><h3>Mazatlán</h3><span class="chevron">+</span></div>
+        <div class="city-detail">Casa by Iglesia Vida — C. Amapá 219, Alameda. <a href="https://drive.google.com/drive/folders/1gcW5tf1i-H-4EUkr72ZS4EmsuzLCIJB7?usp=sharing" target="_blank" rel="noopener" style="text-decoration:underline;">Ver información y contacto</a>.</div>
+      </div>
+      <div class="city">
+        <div class="city-head"><h3>Los Mochis</h3><span class="chevron">+</span></div>
+        <div class="city-detail"><a href="https://drive.google.com/drive/folders/1EZsG6U68cnIJqBQ5wzsse2SpLashr7f4?usp=sharing" target="_blank" rel="noopener" style="text-decoration:underline;">Ver información y contacto</a>.</div>
+      </div>
+      <div class="city">
+        <div class="city-head"><h3>Tijuana</h3><span class="chevron">+</span></div>
+        <div class="city-detail"><a href="https://drive.google.com/drive/folders/166BCBzgVwZhwwScU4CngL-gOeqTeSfj4?usp=sharing" target="_blank" rel="noopener" style="text-decoration:underline;">Ver información y contacto</a>.</div>
+      </div>
+      <div class="city">
+        <div class="city-head"><h3>Cabo San Lucas</h3><span class="chevron">+</span></div>
+        <div class="city-detail"><a href="https://drive.google.com/drive/folders/1B5bOxjBm0IjaVYCM9J3CrdUpsDFyCfNd?usp=drive_link" target="_blank" rel="noopener" style="text-decoration:underline;">Ver información y contacto</a>.</div>
       </div>
       <div class="city">
         <div class="city-head"><h3>Guadalajara</h3><span class="chevron">+</span></div>
-        <div class="city-detail">Reuniones los martes 7:30 PM. Grupos para jóvenes y familias.</div>
-      </div>
-      <div class="city">
-        <div class="city-head"><h3>Monterrey</h3><span class="chevron">+</span></div>
-        <div class="city-detail">Reuniones los miércoles 7:00 PM, con opción en línea para quienes no puedan asistir presencial.</div>
+        <div class="city-detail"><a href="https://drive.google.com/drive/folders/1jOPeGkAHyRet8J67FZUru1nDC4kkfRud?usp=sharing" target="_blank" rel="noopener" style="text-decoration:underline;">Ver información y contacto</a>.</div>
       </div>
     </div>
   </section>
@@ -293,15 +313,22 @@
   </section>
 
   <section id="galeria" class="wrap reveal">
-    <div class="head">
-      <span class="eyebrow">Momentos</span>
-      <h2>Galería</h2>
+    <div class="head head-row">
+      <div>
+        <span class="eyebrow">Momentos</span>
+        <h2>Galería</h2>
+      </div>
+      <a href="https://www.instagram.com/iglesiavida.global" target="_blank" rel="noopener" class="btn">Ver en Instagram</a>
     </div>
-    <div class="gallery">
-      <a href="#"><img src="https://placehold.co/400x400/EDEBE4/141412?text=1" alt="Reunión dominical"></a>
-      <a href="#"><img src="https://placehold.co/400x400/EDEBE4/141412?text=2" alt="Grupo de jóvenes"></a>
-      <a href="#"><img src="https://placehold.co/400x400/EDEBE4/141412?text=3" alt="Bautismos"></a>
-      <a href="#"><img src="https://placehold.co/400x400/EDEBE4/141412?text=4" alt="Grupo pequeño"></a>
+    <div class="carousel" id="carousel">
+      <div class="carousel-track" id="carouselTrack">
+        <img src="gallery/1.jpg" alt="Iglesia Vida" class="active">
+        <img src="gallery/2.jpg" alt="Iglesia Vida">
+        <img src="gallery/3.jpg" alt="Iglesia Vida">
+        <img src="gallery/4.jpg" alt="Iglesia Vida">
+        <img src="gallery/5.jpg" alt="Iglesia Vida">
+      </div>
+      <div class="carousel-dots" id="carouselDots"></div>
     </div>
   </section>
 
@@ -311,10 +338,10 @@
       <h2>Redes sociales</h2>
     </div>
     <div class="social-row">
-      <a href="https://instagram.com/iglesiavida.global" target="_blank" rel="noopener">Instagram</a>
-      <a href="#" target="_blank" rel="noopener">YouTube</a>
-      <a href="#" target="_blank" rel="noopener">Facebook</a>
-      <a href="#" target="_blank" rel="noopener">TikTok</a>
+      <a href="https://www.instagram.com/iglesiavida.global" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.youtube.com/@iglesiavidacln" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.facebook.com/iglesiavidac" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://viveradio.mx" target="_blank" rel="noopener">Vive Radio</a>
     </div>
   </section>
 
@@ -324,7 +351,7 @@
       <h2>Ubicación</h2>
     </div>
     <div class="map-frame">
-      <iframe src="https://www.google.com/maps?q=Ciudad%20de%20M%C3%A9xico&output=embed" loading="lazy" title="Ubicación Iglesia Vida"></iframe>
+      <iframe src="https://www.google.com/maps?q=Luis%20Gonz%C3%A1lez%20Urbina%20229%2C%20Col.%20Bachigualato%2C%2080104%20Culiac%C3%A1n%20Rosales%2C%20Sin.%2C%20Mexico&output=embed" loading="lazy" title="Ubicación Iglesia Vida"></iframe>
     </div>
   </section>
 
@@ -360,7 +387,7 @@
       </div>
       <div class="footer-col">
         <h4>Contacto</h4>
-        <a href="https://instagram.com/iglesiavida.global" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.instagram.com/iglesiavida.global" target="_blank" rel="noopener">Instagram</a>
         <a href="#ubicacion">Ubicación</a>
         <a href="#contacto">Escríbenos</a>
       </div>
@@ -372,7 +399,7 @@
   </div>
 </footer>
 
-<a class="wa-float" href="https://wa.me/5210000000000" target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>
+<a class="wa-float" href="https://wa.me/526674714233" target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>
 <button class="top-btn" id="topBtn" aria-label="Volver arriba">↑</button>
 
 <script>
@@ -398,6 +425,30 @@
     topBtn.classList.toggle('show', y > 500);
   });
   topBtn.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+
+  // Carrusel de galería (rotación automática)
+  (function(){
+    const track = document.getElementById('carouselTrack');
+    if(!track) return;
+    const imgs = track.querySelectorAll('img');
+    const dotsWrap = document.getElementById('carouselDots');
+    let current = 0;
+    imgs.forEach((_, i) => {
+      const dot = document.createElement('span');
+      if(i === 0) dot.classList.add('active');
+      dot.addEventListener('click', () => goTo(i));
+      dotsWrap.appendChild(dot);
+    });
+    const dots = dotsWrap.querySelectorAll('span');
+    function goTo(index){
+      imgs[current].classList.remove('active');
+      dots[current].classList.remove('active');
+      current = index;
+      imgs[current].classList.add('active');
+      dots[current].classList.add('active');
+    }
+    setInterval(() => goTo((current + 1) % imgs.length), 4000);
+  })();
 
   // Acordeón de ciudades
   document.querySelectorAll('.city').forEach(city => {
