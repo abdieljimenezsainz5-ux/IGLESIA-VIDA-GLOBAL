@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Iglesia Vida — Un lugar para crecer en fe</title>
+<link rel="icon" type="image/png" href="logo-icon-black.png">
+<meta name="description" content="Iglesia Vida. Horarios de reuniones, grupos pequeños, peticiones de oración, predicaciones y más.">
+
+<meta property="og:title" content="Iglesia Vida">
+<meta property="og:description" content="Un lugar para crecer en fe. Horarios, grupos pequeños, predicaciones y más.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://placehold.co/1200x630/111111/FFFFFF?text=Iglesia+Vida">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --bg:#FAFAF8; --bg-alt:#F0EFEA; --paper:#FFFFFF;
+    --ink:#141412; --ink-soft:#5C5B56; --ink-faint:#8B8A83;
+    --line:#DEDDD6; --line-strong:#141412;
+    --radius:2px; --ease:cubic-bezier(.22,1,.36,1);
+  }
+  html[data-theme="dark"]{
+    --bg:#111110; --bg-alt:#1A1A18; --paper:#171715;
+    --ink:#F5F4EF; --ink-soft:#B7B6AE; --ink-faint:#77766F;
+    --line:#2C2C29; --line-strong:#F5F4EF;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased;transition:background .4s var(--ease),color .4s var(--ease);overflow-x:hidden;}
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:500;letter-spacing:-.01em;margin:0;}
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px;}
+  .eyebrow{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint);font-weight:600;display:flex;align-items:center;gap:10px;}
+  .eyebrow::before{content:"";width:22px;height:1px;background:var(--line-strong);display:inline-block;}
+  section{padding:96px 0;border-bottom:1px solid var(--line);}
+  @media(max-width:640px){section{padding:64px 0;}}
+
+  header.site{position:fixed;top:0;left:0;right:0;z-index:100;background:color-mix(in srgb, var(--bg) 88%, transparent);backdrop-filter:blur(10px);border-bottom:1px solid transparent;transition:border-color .3s var(--ease),background .4s var(--ease);}
+  header.site.scrolled{border-bottom-color:var(--line);}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:18px 24px;max-width:1120px;margin:0 auto;}
+  .logo{font-family:'Fraunces',serif;font-size:1.15rem;font-weight:600;letter-spacing:-.01em;}
+  .logo-img{height:44px;width:auto;display:block;}
+  .logo-img.dark-only{display:none;}
+  html[data-theme="dark"] .logo-img.light-only{display:none;}
+  html[data-theme="dark"] .logo-img.dark-only{display:block;}
+  .footer-logo-img{height:38px;width:auto;display:block;margin-bottom:14px;}
+  .footer-logo-img.dark-only{display:none;}
+  html[data-theme="dark"] .footer-logo-img.light-only{display:none;}
+  html[data-theme="dark"] .footer-logo-img.dark-only{display:block;}
+  .nav-links{display:flex;gap:28px;font-size:.86rem;color:var(--ink-soft);}
+  .nav-links a{transition:color .2s;}
+  .nav-links a:hover{color:var(--ink);}
+  .nav-right{display:flex;align-items:center;gap:16px;}
+  .theme-btn{width:34px;height:34px;border-radius:50%;border:1px solid var(--line);background:transparent;color:var(--ink);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:.9rem;}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;font-size:.86rem;font-weight:600;border:1px solid var(--line-strong);border-radius:var(--radius);cursor:pointer;background:transparent;color:var(--ink);transition:transform .25s var(--ease),background .25s var(--ease),color .25s var(--ease);}
+  .btn.solid{background:var(--ink);color:var(--bg);}
+  .btn:hover{transform:translateY(-2px);}
+  @media(max-width:820px){.nav-links{display:none;}}
+
+  .hero{min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding-top:120px;position:relative;border-bottom:1px solid var(--line);}
+  .hero h1{font-size:clamp(2.6rem,6vw,5.2rem);line-height:1.02;max-width:14ch;}
+  .hero h1 em{font-style:italic;font-weight:300;color:var(--ink-soft);}
+  .hero p{margin-top:26px;max-width:46ch;color:var(--ink-soft);font-size:1.05rem;line-height:1.6;}
+  .hero-actions{display:flex;gap:14px;margin-top:40px;flex-wrap:wrap;}
+  .hero-verse{margin-top:80px;padding-top:28px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;color:var(--ink-faint);font-size:.82rem;}
+
+  .head{margin-bottom:56px;}
+  .head h2{font-size:clamp(1.8rem,3.4vw,2.6rem);margin-top:14px;max-width:20ch;}
+  .head-row{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;}
+  .head-desc{max-width:34ch;color:var(--ink-soft);font-size:.95rem;line-height:1.6;}
+
+  .board{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;}
+  .board-item{padding:32px 26px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);position:relative;background:var(--paper);transition:background .3s var(--ease);}
+  .board-item:hover{background:var(--bg-alt);}
+  .board-item .day{font-family:'Fraunces',serif;font-size:1.4rem;}
+  .board-item .time{margin-top:10px;font-size:.9rem;color:var(--ink-soft);}
+  .board-item .who{margin-top:4px;font-size:.78rem;color:var(--ink-faint);text-transform:uppercase;letter-spacing:.08em;}
+  .board-item::after{content:"";position:absolute;left:26px;bottom:0;height:2px;width:0;background:var(--line-strong);transition:width .5s var(--ease);}
+  .board-item:hover::after{width:32px;}
+
+  .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:36px;}
+  .step .num{font-family:'Fraunces',serif;font-style:italic;font-size:1rem;color:var(--ink-faint);}
+  .step h3{margin-top:10px;font-size:1.2rem;}
+  .step p{margin-top:10px;color:var(--ink-soft);font-size:.92rem;line-height:1.6;}
+
+  .city-list{border-top:1px solid var(--line);}
+  .city{border-bottom:1px solid var(--line);padding:22px 0;cursor:pointer;}
+  .city-head{display:flex;justify-content:space-between;align-items:center;gap:20px;}
+  .city h3{font-size:1.1rem;font-weight:500;}
+  .city-detail{max-height:0;overflow:hidden;transition:max-height .4s var(--ease);color:var(--ink-soft);font-size:.9rem;}
+  .city.open .city-detail{max-height:200px;padding-top:14px;}
+  .city .chevron{transition:transform .3s var(--ease);color:var(--ink-faint);font-size:1.2rem;}
+  .city.open .chevron{transform:rotate(45deg);}
+
+  form.card-form{display:grid;gap:16px;max-width:560px;}
+  .field label{display:block;font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-faint);margin-bottom:8px;}
+  .field input,.field textarea,.field select{width:100%;padding:12px 14px;background:transparent;border:1px solid var(--line);border-radius:var(--radius);color:var(--ink);font-family:'Inter',sans-serif;font-size:.94rem;}
+  .field textarea{min-height:110px;resize:vertical;}
+  .field input:focus,.field textarea:focus,.field select:focus{outline:2px solid var(--ink);outline-offset:1px;}
+  .form-note{font-size:.78rem;color:var(--ink-faint);}
+  .form-status{font-size:.85rem;color:var(--ink-soft);min-height:1.2em;}
+
+  .video-frame{position:relative;padding-top:56.25%;border:1px solid var(--line);background:var(--bg-alt);border-radius:var(--radius);overflow:hidden;}
+  .video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+
+  .grid-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);}
+  .card{background:var(--paper);padding:30px;transition:background .3s var(--ease);}
+  .card:hover{background:var(--bg-alt);}
+  .card h3{font-size:1.05rem;}
+  .card p{margin-top:10px;color:var(--ink-soft);font-size:.88rem;line-height:1.55;}
+  .card .tag{font-size:.72rem;color:var(--ink-faint);letter-spacing:.08em;text-transform:uppercase;}
+
+  .carousel{position:relative;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--bg-alt);}
+  .carousel-track{position:relative;width:100%;aspect-ratio:16/9;}
+  .carousel-track img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1s var(--ease);}
+  .carousel-track img.active{opacity:1;}
+  .carousel-dots{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);display:flex;gap:8px;}
+  .carousel-dots span{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.5);cursor:pointer;transition:background .3s;}
+  .carousel-dots span.active{background:#fff;}
+  @media(max-width:640px){.carousel-track{aspect-ratio:4/5;}}
+
+  .social-row{display:flex;gap:14px;flex-wrap:wrap;}
+  .social-row a{display:inline-flex;align-items:center;gap:10px;padding:12px 22px;border:1px solid var(--line);border-radius:999px;font-size:.88rem;font-weight:500;transition:background .25s var(--ease),color .25s var(--ease),border-color .25s var(--ease),transform .25s var(--ease);}
+  .social-row a svg{width:18px;height:18px;flex-shrink:0;}
+  .social-row a:hover{background:var(--ink);color:var(--bg);border-color:var(--ink);transform:translateY(-2px);}
+
+  .map-frame{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;}
+  .map-frame iframe{width:100%;height:380px;border:0;filter:grayscale(1) contrast(1.05);}
+
+  footer{padding:56px 0 32px;}
+  .footer-top{display:flex;justify-content:space-between;gap:32px;flex-wrap:wrap;margin-bottom:40px;}
+  .footer-cols{display:flex;gap:64px;flex-wrap:wrap;}
+  .footer-col h4{font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-faint);margin-bottom:14px;}
+  .footer-col a{display:block;font-size:.9rem;color:var(--ink-soft);margin-bottom:8px;}
+  .footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:.78rem;color:var(--ink-faint);padding-top:24px;border-top:1px solid var(--line);}
+
+  .wa-float{position:fixed;bottom:24px;right:24px;z-index:90;width:54px;height:54px;border-radius:50%;background:var(--ink);color:var(--bg);display:flex;align-items:center;justify-content:center;font-size:1.5rem;box-shadow:0 8px 24px rgba(0,0,0,.18);transition:transform .3s var(--ease);}
+  .wa-float:hover{transform:scale(1.08);}
+
+  .top-btn{position:fixed;bottom:24px;left:24px;z-index:90;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--bg);color:var(--ink);display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .3s var(--ease),transform .3s var(--ease);}
+  .top-btn.show{opacity:1;pointer-events:auto;}
+
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s var(--ease),transform .7s var(--ease);}
+  .reveal.in{opacity:1;transform:translateY(0);}
+
+  @media(prefers-reduced-motion:reduce){
+    *{transition:none !important;scroll-behavior:auto !important;}
+    .reveal{opacity:1;transform:none;}
+  }
+  :focus-visible{outline:2px solid var(--ink);outline-offset:2px;}
+</style>
+</head>
+<body>
+
+<header class="site" id="siteHeader">
+  <nav class="nav">
+    <a href="#top" class="logo" aria-label="Iglesia Vida">
+      <img class="logo-img light-only" src="logo-horizontal-black.png" alt="Iglesia Vida">
+      <img class="logo-img dark-only" src="logo-horizontal-white.png" alt="Iglesia Vida">
+    </a>
+    <div class="nav-links">
+      <a href="#reuniones">Reuniones</a>
+      <a href="#nuevo">Soy nuevo</a>
+      <a href="#grupos">Grupos</a>
+      <a href="#oracion">Oración</a>
+      <a href="#ministerios">Ministerios</a>
+      <a href="#biblia">Biblia</a>
+      <a href="#ubicacion">Ubicación</a>
+    </div>
+    <div class="nav-right">
+      <button class="theme-btn" id="themeBtn" aria-label="Cambiar tema">◐</button>
+      <a href="#contacto" class="btn solid">Contáctanos</a>
+    </div>
+  </nav>
+</header>
+
+<main id="top">
+
+  <section class="hero wrap">
+    <span class="eyebrow">Iglesia Vida · @iglesiavida.global</span>
+    <h1>Un lugar para <em>crecer</em><br>en tu fe</h1>
+    <p>Una comunidad para conocer a Dios, encontrar familia y caminar acompañado, sin importar en qué punto de tu historia estés.</p>
+    <div class="hero-actions">
+      <a href="#reuniones" class="btn solid">Ver horarios</a>
+      <a href="#nuevo" class="btn">Soy nuevo aquí</a>
+    </div>
+    <div class="hero-verse">
+      <span>"Yo he venido para que tengan vida, y para que la tengan en abundancia." — Juan 10:10</span>
+      <span>Servicio presencial y en línea</span>
+    </div>
+  </section>
+
+  <section id="reuniones" class="wrap reveal">
+    <div class="head">
+      <div class="head-row">
+        <div>
+          <span class="eyebrow">Próximas reuniones</span>
+          <h2>Un horario para cada etapa</h2>
+        </div>
+        <p class="head-desc">Encuentra el grupo que se ajusta a tu semana y a tu familia.</p>
+      </div>
+    </div>
+    <div class="board">
+      <div class="board-item"><div class="day">Domingo</div><div class="time">10:00 AM</div><div class="who">Servicio general</div></div>
+      <div class="board-item"><div class="day">Viernes</div><div class="time">7:00 PM</div><div class="who">Jóvenes</div></div>
+      <div class="board-item"><div class="day">Domingo</div><div class="time">10:00 AM</div><div class="who">Niños</div></div>
+      <div class="board-item"><div class="day">Miércoles</div><div class="time">6:30 PM</div><div class="who">Mujeres</div></div>
+      <div class="board-item"><div class="day">Martes</div><div class="time">7:00 PM</div><div class="who">Hombres</div></div>
+      <div class="board-item"><div class="day">Sábado</div><div class="time">5:00 PM</div><div class="who">Matrimonios</div></div>
+    </div>
+  </section>
+
+  <section id="nuevo" class="wrap reveal">
+    <div class="head">
+      <span class="eyebrow">Primera vez</span>
+      <h2>Eres bienvenido tal como estás</h2>
+    </div>
+    <div class="steps">
+      <div class="step"><h3>Llega cuando puedas</h3><p>No hace falta llegar puntual ni vestido de cierta forma. Solo ven.</p></div>
+      <div class="step"><h3>Alguien te recibe</h3><p>En la entrada siempre hay una persona lista para orientarte y presentarte a otros.</p></div>
+      <div class="step"><h3>Encuentra tu grupo</h3><p>Después del servicio te ayudamos a conectar con un grupo pequeño cerca de ti.</p></div>
+    </div>
+  </section>
+
+  <section id="grupos" class="wrap reveal">
+    <div class="head">
+      <span class="eyebrow">Comunidad</span>
+      <h2>Grupos pequeños por ciudad</h2>
+    </div>
+    <div class="city-list" id="cityList">
+      <div class="city">
+        <div class="city-head"><h3>Culiacán</h3><span class="chevron">+</span></div>
+        <div class="city-detail">Grupos pequeños en distintas zonas de la ciudad. <a href="https://drive.google.com/drive/folders/1Q7INUPlq3U16nsphQLT7D3clFVcwBPbR?usp=drive_link" target="_blank" rel="noopener" style="text-decoration:underline;">Ver información y contacto</a>.</div>
+      </div>
+      <div class="city">
+        <div class="city-head"><h3>Navolato</h3><span class="chevron">+</span></div>
+        <div class="city-detail"><a href="https://drive.google.com/drive/folders/1FUmPgsAy2QrAnb3Oe86sQy99nBY1HTY7?usp=sharing" target="_blank" rel="noopener" style="text-decoration:underline;">Ver información y contacto</a>.</div>
+      </div>
+      <div class="city">
+        <div class="city-head"><h3>Mazatlán</h3><span class="chevron">+</span></div>
+        <div class="city-detail">Casa by Iglesia Vida — C. Amapá 219, Alameda. <a href="https://drive.google.com/drive/folders/1gcW5tf1i-H-4EUkr72ZS4EmsuzLCIJB7?usp=sharing" target="_blank" rel="noopener" style="text-decoration:underline;">Ver información y contacto</a>.</div>
+      </div>
+      <div class="city">
+        <div class="city-head"><h3>Los Mochis</h3><span class="chevron">+</span></div>
+        <div class="city-detail"><a href="https://drive.google.com/drive/folders/1EZsG6U68cnIJqBQ5wzsse2SpLashr7f4?usp=sharing" target="_blank" rel="noopener" style="text-decoration:underline;">Ver información y contacto</a>.</div>
+      </div>
+      <div class="city">
+        <div class="city-head"><h3>Tijuana</h3><span class="chevron">+</span></div>
+        <div class="city-detail"><a href="https://drive.google.com/drive/folders/166BCBzgVwZhwwScU4CngL-gOeqTeSfj4?usp=sharing" target="_blank" rel="noopener" style="text-decoration:underline;">Ver información y contacto</a>.</div>
+      </div>
+      <div class="city">
+        <div class="city-head"><h3>Cabo San Lucas</h3><span class="chevron">+</span></div>
+        <div class="city-detail"><a href="https://drive.google.com/drive/folders/1B5bOxjBm0IjaVYCM9J3CrdUpsDFyCfNd?usp=drive_link" target="_blank" rel="noopener" style="text-decoration:underline;">Ver información y contacto</a>.</div>
+      </div>
+      <div class="city">
+        <div class="city-head"><h3>Guadalajara</h3><span class="chevron">+</span></div>
+        <div class="city-detail"><a href="https://drive.google.com/drive/folders/1jOPeGkAHyRet8J67FZUru1nDC4kkfRud?usp=sharing" target="_blank" rel="noopener" style="text-decoration:underline;">Ver información y contacto</a>.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="oracion" class="wrap reveal">
+    <div class="head">
+      <span class="eyebrow">Acompañamiento</span>
+      <h2>Peticiones de oración</h2>
+      <p class="head-desc" style="margin-top:14px;">Cuéntanos qué está pasando. Nuestro equipo ora por cada petición de forma confidencial.</p>
+    </div>
+    <form class="card-form" id="prayerForm" action="https://formspree.io/f/TU_ID_FORMSPREE" method="POST">
+      <div class="field"><label for="pName">Nombre</label><input id="pName" name="nombre" type="text" required></div>
+      <div class="field"><label for="pContact">Correo o WhatsApp</label><input id="pContact" name="contacto" type="text" required></div>
+      <div class="field"><label for="pMsg">Tu petición</label><textarea id="pMsg" name="peticion" required></textarea></div>
+      <button class="btn solid" type="submit" style="justify-self:start;">Enviar petición</button>
+      <p class="form-status" id="prayerStatus"></p>
+    </form>
+  </section>
+
+  <section id="predicacion" class="wrap reveal">
+    <div class="head">
+      <span class="eyebrow">Esta semana</span>
+      <h2>Predicación de la semana</h2>
+    </div>
+    <div class="video-frame">
+      <iframe src="https://www.youtube.com/embed/videoseries?list=UUkCHOnuXVoyjppE23vV1AAw" title="Predicación de la semana" allowfullscreen loading="lazy"></iframe>
+    </div>
+  </section>
+
+  <section id="recursos" class="wrap reveal">
+    <div class="head">
+      <span class="eyebrow">Para seguir creciendo</span>
+      <h2>Recursos</h2>
+    </div>
+    <div class="grid-cards">
+      <div class="card"><span class="tag">Guía</span><h3>Plan de lectura bíblica</h3><p>Un recorrido diario para leer la Biblia en un año.</p></div>
+      <div class="card"><span class="tag">Serie</span><h3>Predicaciones pasadas</h3><p>Escucha o mira mensajes de semanas anteriores.</p></div>
+      <div class="card"><span class="tag">Podcast</span><h3>Conversaciones de fe</h3><p>Episodios cortos sobre temas de vida cotidiana.</p></div>
+    </div>
+  </section>
+
+  <section id="biblia" class="wrap reveal">
+    <div class="head head-row">
+      <div>
+        <span class="eyebrow">Para tu día a día</span>
+        <h2>Lleva la Biblia contigo</h2>
+      </div>
+      <p class="head-desc">Descarga la app de YouVersion y ten la Biblia, planes de lectura y devocionales en tu celular, gratis.</p>
+    </div>
+    <div class="grid-cards">
+      <div class="card">
+        <span class="tag">iOS</span>
+        <h3>App Store</h3>
+        <p>Descarga la Bible App para iPhone y iPad.</p>
+        <a href="https://apps.apple.com/app/id282935706" target="_blank" rel="noopener" class="btn" style="margin-top:16px;">Descargar</a>
+      </div>
+      <div class="card">
+        <span class="tag">Android</span>
+        <h3>Google Play</h3>
+        <p>Descarga la Bible App para celulares Android.</p>
+        <a href="https://play.google.com/store/apps/details?id=com.sirma.mobile.bible.android" target="_blank" rel="noopener" class="btn" style="margin-top:16px;">Descargar</a>
+      </div>
+      <div class="card">
+        <span class="tag">Web</span>
+        <h3>Bible.com</h3>
+        <p>Léela también desde tu navegador, sin instalar nada.</p>
+        <a href="https://www.bible.com/app" target="_blank" rel="noopener" class="btn" style="margin-top:16px;">Abrir</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="ministerios" class="wrap reveal">
+    <div class="head">
+      <span class="eyebrow">Sirve con nosotros</span>
+      <h2>Ministerios</h2>
+    </div>
+    <div class="grid-cards">
+      <div class="card"><span class="tag">Adoración</span><h3>Alabanza</h3><p>Música y arte al servicio de cada reunión.</p></div>
+      <div class="card"><span class="tag">Niñez</span><h3>Vida Kids</h3><p>Un espacio seguro y divertido para los más pequeños.</p></div>
+      <div class="card"><span class="tag">Servicio</span><h3>Hospitalidad</h3><p>El primer rostro que ve cada persona nueva.</p></div>
+      <div class="card"><span class="tag">Comunidad</span><h3>Grupos pequeños</h3><p>Acompañamiento cercano fuera del domingo.</p></div>
+    </div>
+  </section>
+
+  <section id="galeria" class="wrap reveal">
+    <div class="head head-row">
+      <div>
+        <span class="eyebrow">Momentos</span>
+        <h2>Galería</h2>
+      </div>
+      <a href="https://www.instagram.com/iglesiavida.global" target="_blank" rel="noopener" class="btn">Ver en Instagram</a>
+    </div>
+    <div class="carousel" id="carousel">
+      <div class="carousel-track" id="carouselTrack">
+        <img src="gallery/1.jpg" alt="Iglesia Vida" class="active">
+        <img src="gallery/2.jpg" alt="Iglesia Vida">
+        <img src="gallery/3.jpg" alt="Iglesia Vida">
+        <img src="gallery/4.jpg" alt="Iglesia Vida">
+        <img src="gallery/5.jpg" alt="Iglesia Vida">
+      </div>
+      <div class="carousel-dots" id="carouselDots"></div>
+    </div>
+  </section>
+
+  <section id="redes" class="wrap reveal">
+    <div class="head">
+      <span class="eyebrow">Síguenos</span>
+      <h2>Redes sociales</h2>
+    </div>
+    <div class="social-row">
+      <a href="https://www.instagram.com/iglesiavida.global" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" stroke="none"/></svg>
+        Instagram
+      </a>
+      <a href="https://youtube.com/@iglesiavidaglobal?si=Kyy9ZR1s98nftJw9" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.2" y="5.5" width="19.6" height="13" rx="4"/><path d="M10.4 9.6l5 2.4-5 2.4z" fill="currentColor" stroke="none"/></svg>
+        YouTube
+      </a>
+      <a href="https://www.facebook.com/iglesiavidac" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.3"/><path d="M14 21.3v-7h2.2l.4-2.8H14V9.6c0-.8.2-1.3 1.4-1.3h1.4V5.8c-.3 0-1.1-.1-2.1-.1-2.1 0-3.5 1.3-3.5 3.6v2.2H9v2.8h2.2v7"/></svg>
+        Facebook
+      </a>
+      <a href="https://viveradio.mx" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12a7.5 7.5 0 0 1 15 0"/><path d="M7.3 12a4.7 4.7 0 0 1 9.4 0"/><circle cx="12" cy="16.2" r="1.9" fill="currentColor" stroke="none"/><path d="M12 18.1v1.8"/></svg>
+        Vive Radio
+      </a>
+    </div>
+  </section>
+
+  <section id="ubicacion" class="wrap reveal">
+    <div class="head">
+      <span class="eyebrow">Visítanos</span>
+      <h2>Ubicación</h2>
+    </div>
+    <div class="map-frame">
+      <iframe src="https://www.google.com/maps?q=Luis%20Gonz%C3%A1lez%20Urbina%20229%2C%20Col.%20Bachigualato%2C%2080104%20Culiac%C3%A1n%20Rosales%2C%20Sin.%2C%20Mexico&output=embed" loading="lazy" title="Ubicación Iglesia Vida"></iframe>
+    </div>
+  </section>
+
+  <section id="contacto" class="wrap reveal" style="border-bottom:none;">
+    <div class="head">
+      <span class="eyebrow">Hablemos</span>
+      <h2>Contacto</h2>
+    </div>
+    <form class="card-form" id="contactForm" action="https://formspree.io/f/TU_ID_FORMSPREE" method="POST">
+      <div class="field"><label for="cName">Nombre</label><input id="cName" name="nombre" type="text" required></div>
+      <div class="field"><label for="cEmail">Correo</label><input id="cEmail" name="email" type="email" required></div>
+      <div class="field"><label for="cMsg">Mensaje</label><textarea id="cMsg" name="mensaje" required></textarea></div>
+      <button class="btn solid" type="submit" style="justify-self:start;">Enviar mensaje</button>
+      <p class="form-status" id="contactStatus"></p>
+    </form>
+  </section>
+
+</main>
+
+<footer class="wrap">
+  <div class="footer-top">
+    <div>
+      <img class="footer-logo-img light-only" src="logo-horizontal-black.png" alt="Iglesia Vida">
+      <img class="footer-logo-img dark-only" src="logo-horizontal-white.png" alt="Iglesia Vida">
+      <p style="max-width:32ch;color:var(--ink-soft);font-size:.9rem;margin-top:10px;">Un lugar para conocer a Dios y crecer en comunidad.</p>
+    </div>
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h4>Explorar</h4>
+        <a href="#reuniones">Reuniones</a>
+        <a href="#grupos">Grupos</a>
+        <a href="#ministerios">Ministerios</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <a href="https://www.instagram.com/iglesiavida.global" target="_blank" rel="noopener">Instagram</a>
+        <a href="#ubicacion">Ubicación</a>
+        <a href="#contacto">Escríbenos</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© <span id="year"></span> Iglesia Vida. Todos los derechos reservados.</span>
+    <span>Desarrollado por Tap Nova Studio</span>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/526674714233" target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>
+<button class="top-btn" id="topBtn" aria-label="Volver arriba">↑</button>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Tema oscuro con persistencia
+  const root = document.documentElement;
+  const themeBtn = document.getElementById('themeBtn');
+  const saved = localStorage.getItem('iv-theme');
+  if(saved) root.setAttribute('data-theme', saved);
+  themeBtn.addEventListener('click', () => {
+    const current = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    if(current === 'dark'){ root.setAttribute('data-theme','dark'); } else { root.removeAttribute('data-theme'); }
+    localStorage.setItem('iv-theme', current === 'dark' ? 'dark' : 'light');
+  });
+
+  // Header con borde al hacer scroll
+  const header = document.getElementById('siteHeader');
+  const topBtn = document.getElementById('topBtn');
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    header.classList.toggle('scrolled', y > 10);
+    topBtn.classList.toggle('show', y > 500);
+  });
+  topBtn.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+
+  // Carrusel de galería (rotación automática)
+  (function(){
+    const track = document.getElementById('carouselTrack');
+    if(!track) return;
+    const imgs = track.querySelectorAll('img');
+    const dotsWrap = document.getElementById('carouselDots');
+    let current = 0;
+    imgs.forEach((_, i) => {
+      const dot = document.createElement('span');
+      if(i === 0) dot.classList.add('active');
+      dot.addEventListener('click', () => goTo(i));
+      dotsWrap.appendChild(dot);
+    });
+    const dots = dotsWrap.querySelectorAll('span');
+    function goTo(index){
+      imgs[current].classList.remove('active');
+      dots[current].classList.remove('active');
+      current = index;
+      imgs[current].classList.add('active');
+      dots[current].classList.add('active');
+    }
+    setInterval(() => goTo((current + 1) % imgs.length), 4000);
+  })();
+
+  // Acordeón de ciudades
+  document.querySelectorAll('.city').forEach(city => {
+    city.addEventListener('click', () => city.classList.toggle('open'));
+  });
+
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:.12});
+  revealEls.forEach(el => io.observe(el));
+
+  // Envío de formularios vía Formspree (fetch, sin recargar la página)
+  function handleForm(formId, statusId){
+    const form = document.getElementById(formId);
+    const status = document.getElementById(statusId);
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      status.textContent = 'Enviando...';
+      try{
+        const res = await fetch(form.action, {
+          method:'POST',
+          body: new FormData(form),
+          headers:{ 'Accept':'application/json' }
+        });
+        if(res.ok){
+          status.textContent = '¡Gracias! Tu mensaje fue enviado.';
+          form.reset();
+        } else {
+          status.textContent = 'Hubo un problema. Intenta de nuevo.';
+        }
+      } catch(err){
+        status.textContent = 'Hubo un problema. Intenta de nuevo.';
+      }
+    });
+  }
+  handleForm('prayerForm','prayerStatus');
+  handleForm('contactForm','contactStatus');
+</script>
+
+</body>
+</html>
