@@ -125,8 +125,9 @@
   @media(max-width:640px){.carousel-track{aspect-ratio:4/5;}}
 
   .social-row{display:flex;gap:14px;flex-wrap:wrap;}
-  .social-row a{padding:12px 20px;border:1px solid var(--line);border-radius:var(--radius);font-size:.88rem;transition:background .25s,color .25s;}
-  .social-row a:hover{background:var(--ink);color:var(--bg);}
+  .social-row a{display:inline-flex;align-items:center;gap:10px;padding:12px 22px;border:1px solid var(--line);border-radius:999px;font-size:.88rem;font-weight:500;transition:background .25s var(--ease),color .25s var(--ease),border-color .25s var(--ease),transform .25s var(--ease);}
+  .social-row a svg{width:18px;height:18px;flex-shrink:0;}
+  .social-row a:hover{background:var(--ink);color:var(--bg);border-color:var(--ink);transform:translateY(-2px);}
 
   .map-frame{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;}
   .map-frame iframe{width:100%;height:380px;border:0;filter:grayscale(1) contrast(1.05);}
@@ -338,10 +339,22 @@
       <h2>Redes sociales</h2>
     </div>
     <div class="social-row">
-      <a href="https://www.instagram.com/iglesiavida.global" target="_blank" rel="noopener">Instagram</a>
-      <a href="https://www.youtube.com/@iglesiavidacln" target="_blank" rel="noopener">YouTube</a>
-      <a href="https://www.facebook.com/iglesiavidac" target="_blank" rel="noopener">Facebook</a>
-      <a href="https://viveradio.mx" target="_blank" rel="noopener">Vive Radio</a>
+      <a href="https://www.instagram.com/iglesiavida.global" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" stroke="none"/></svg>
+        Instagram
+      </a>
+      <a href="https://youtube.com/@iglesiavidaglobal?si=Kyy9ZR1s98nftJw9" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.2" y="5.5" width="19.6" height="13" rx="4"/><path d="M10.4 9.6l5 2.4-5 2.4z" fill="currentColor" stroke="none"/></svg>
+        YouTube
+      </a>
+      <a href="https://www.facebook.com/iglesiavidac" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.3"/><path d="M14 21.3v-7h2.2l.4-2.8H14V9.6c0-.8.2-1.3 1.4-1.3h1.4V5.8c-.3 0-1.1-.1-2.1-.1-2.1 0-3.5 1.3-3.5 3.6v2.2H9v2.8h2.2v7"/></svg>
+        Facebook
+      </a>
+      <a href="https://viveradio.mx" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12a7.5 7.5 0 0 1 15 0"/><path d="M7.3 12a4.7 4.7 0 0 1 9.4 0"/><circle cx="12" cy="16.2" r="1.9" fill="currentColor" stroke="none"/><path d="M12 18.1v1.8"/></svg>
+        Vive Radio
+      </a>
     </div>
   </section>
 
